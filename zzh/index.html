@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>竹子盒私人订制vip高端赛博灵堂</title>
+</head>
+<body>
+    <!-- 图片元素 -->
+    <img id="fullscreenImage" src="zzh/remembering.jpeg" alt="Full Screen Image" style="width:100%; height:auto;">
+
+    <!-- 音乐播放器 -->
+    <audio id="musicPlayer" controls>
+        <source src="zzh/lament_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // 获取图片和音乐播放器元素
+        var image = document.getElementById('fullscreenImage');
+        var musicPlayer = document.getElementById('musicPlayer');
+
+        // 设置图片为全屏
+        function setFullScreen() {
+            image.style.width = '100%';
+            image.style.height = window.innerHeight + 'px';
+        }
+
+        // 播放音乐
+        function playMusic() {
+            musicPlayer.play();
+        }
+
+        // 循环播放音乐
+        function loopMusic() {
+            musicPlayer.onended = function() {
+                musicPlayer.currentTime = 0;
+                playMusic();
+            };
+        }
+
+        // 窗口大小改变时重新设置图片大小
+        window.onresize = function() {
+            setFullScreen();
+        };
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            setFullScreen();
+            playMusic();
+            loopMusic();
+        });
+    </script>
+</body>
+</html>
+
+
+
 
